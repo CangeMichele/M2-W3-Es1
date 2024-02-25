@@ -5,11 +5,55 @@
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 
+function crazySum(n1, n2) {
+
+    if (typeof n1 !== "number" || typeof n2 !== "number" || !Number.isInteger(n1) || !Number.isInteger(n2)) {
+        return console.log("Esercizio 1: errore input");
+
+    } else {
+        if (n1 === n2) {
+            result = ""
+            result = (n1 + n2) * 3
+        } else {
+            result = ""
+            result = n1 + n2
+        }
+
+        return console.log("Esercizio 1: " + result);
+    }
+}
+
+inputNum1 = 10
+inputNum2 = 34
+
+crazySum(inputNum1, inputNum2)
+
+
+
 /* ESERCIZIO 2
  Scrivi una funzione chiamata "boundary", che accetta un numero intero come parametro e ritorna true se tale parametro è incluso tra 20 e 100 (incluso) o se è esattamente uguale a 400.
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+
+function boundary(n) {
+    if (typeof n !== "number" || !Number.isInteger(n)) {
+        return console.log("Esercizio 2: errore input");
+
+    } else if ((20 < n && n <= 100) || n === 400) {
+        result = true
+    } else {
+        result = false
+    }
+
+    return console.log("Esercizio 2: " + result);
+}
+
+input = 400
+
+boundary(input)
+
+
 
 /* ESERCIZIO 3
  Scrivi una funzione chiamata "reverseString", che accetta una stringa come parametro e la ritorna invertita (es.: EPICODE => EDOCIPE).
@@ -17,11 +61,55 @@
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 
+function reverseString(str) {
+    if (typeof str !== "string") {
+        return console.log("Esercizio 3: errore input");
+    } else {
+        result = ""
+        for (i = 0; i < str.length; i++) {
+            result = str[i] + result
+        }
+
+        return console.log("Esercizio 3: " + result);
+    }
+}
+
+input = "ciao a tutti"
+
+reverseString(input)
+
+
 /* ESERCIZIO 4
  Scrivi una funzione chiamata "upperFirst", che accetta una stringa come parametro e la ritorna rendendo maiuscola ogni lettera iniziale di ogni parola.
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+
+
+function upperFirst(str) {
+    if (typeof str !== "string") {
+        return console.log("Esercizio 4: errore input");
+
+    } else {
+        result = ""
+        result = str[0].toUpperCase()
+        for (i = 1; i < str.length; i++) {
+            if (str[i - 1] === " ") {
+                result = result + str[i].toUpperCase()
+            } else {
+                result = result + str[i]
+            }
+        }
+
+        return console.log("Esercizio 4: " + result);
+    }
+}
+
+input = "ciao a tutti"
+
+upperFirst(input)
+
+
 
 /* ESERCIZIO 5
  Scrivi una funzione chiamata "giveMeRandom", che accetta come parametro un numero chiamato n e ritorna un array contenente n numeri random contenuti tra 0 e 10.
@@ -29,18 +117,46 @@
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 
+function giveMeRandom(n) {
+    if (typeof n !== "number" && !Number.isInteger(n)) {
+        return console.log("Esercizio 5: errore input");
+    } else {
+        result = new Array
+        for (i = 0; i < n; i++) {
+            result[i] = Math.floor(Math.random() * 11)
+        }
+
+        return console.log("Esercizio 5:" + result)
+    }
+}
+
+input = 10
+
+giveMeRandom(input)
+
 //EXTRA:
 /* ESERCIZIO 1
  Scrivi una funzione chiamata "area" che riceve due parametri (l1, l2) e calcola l'area del rettangolo associato.
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+
 function areaRettangolo(l1, l2) {
-    area = l1 * l2
-    return "L'area del rettangolo è " + area
+    if (typeof l1 !== "number" || typeof l2 !== "number") {
+        return console.log("Esercizio extra 1: errore input");
+    } else {
+        result = ""
+        result = l1 + l2
+        return console.log("Esercizio extra 1: " + result);
+    }
 }
 
-console.log(areaRettangolo(10, 5));
+input1 = 10
+input2 = 20
+
+areaRettangolo(input1, input2);
+
+
 
 /* ESERCIZIO 2
  Scrivi una funzione chiamata "crazyDiff" che calcola la differenza assoluta tra un numero fornito e 19.
@@ -50,19 +166,26 @@ console.log(areaRettangolo(10, 5));
 /* SCRIVI QUI LA TUA RISPOSTA */
 
 function crazyDiff(n) {
-    diff = n - 19
-    if (diff < 0) {
-        diff = diff * (-1)
-    }
+    if (typeof n !== "number") {
+        return console.log("Esercizio extra2: errore input");
+    } else {
+        diff = ""
+        diff = n - 19
+        if (diff < 0) {
+            diff = diff * (-1)
+        }
 
-    if (diff > 19) {
-        diff = diff * 3
-    }
+        if (diff > 19) {
+            diff = diff * 3
+        }
 
-    return "crazyDiff = " + diff
+        return console.log("Esercizio extra 2: " + diff);
+    }
 }
 
-console.log(crazyDiff(40));
+input = 40
+
+crazyDiff(input);
 
 
 
@@ -74,18 +197,21 @@ console.log(crazyDiff(40));
 /* SCRIVI QUI LA TUA RISPOSTA */
 
 function codify(str) {
-    strTest = str.slice(0, 4)
-    strTest = str.toLowerCase(str)
-
-    if (strTest === "code ") {
-        return str
+    if (typeof str !== "string") {
+        return console.log("Esercizio extra 3: errore input");
     } else {
-        return "code " + str
+        strTest = str.substring(0, 5)
+        strTest = strTest.toLowerCase()
+
+        if (strTest === "code ") {
+            return console.log("Esercizio extra 3: " + str);
+        } else {
+            return console.log("Esercizio extra 3: code " + str);
+        }
     }
 }
-
-stringa = "code ciao a tutti ciao a tutti ciao a tutti ciao a tutti "
-console.log(codify(stringa));
+stringa = "ciao a tutti"
+codify(stringa);
 
 
 /* ESERCIZIO 4
@@ -100,7 +226,7 @@ function check3and7(n) {
 
     let check = false
     if (n < 0 || !Number.isInteger(n)) {
-        check = "numero non valido";
+        return console.log("Esercizio Extra 4: errore input")
     } else {
         if (n % 3 === 0) {
             check = true
@@ -111,9 +237,12 @@ function check3and7(n) {
         }
     }
 
-    return check
+    return console.log("Esercizio extra 4: " + check)
 }
-console.log(check3and7(21));
+
+input = 21
+
+check3and7(input);
 
 
 
@@ -124,13 +253,14 @@ console.log(check3and7(21));
 /* SCRIVI QUI LA TUA RISPOSTA */
 
 function cutString(str) {
-    if (typeof str === "string"){
-        cut = str.substr(1, str.length -2)
-        return cut
+    if (typeof str !== "string") {
+        return console.log("Esercizio extra 5: errore input");
+
     } else {
-        return console.log("non hai inserito una stringa!");
+        cut = str.substr(1, str.length - 2)
+        return console.log("Esercizio extra 5: "+ cut);
     }
 }
 
-stringa ="ciao a tutti"
-console.log(cutString(stringa));
+stringa = "ciao a tutti"
+cutString(stringa);
